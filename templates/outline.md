@@ -130,15 +130,15 @@ Each chapter card carries a **Status** line at the top. The status flag indicate
 
 ### Quotation marker format
 
-Working quotations are marked with citation keys in pandoc-citeproc style, with optional location and normalization status:
+Working quotations follow **CONV-002** in `conventions.md`. Every quotation begins with a pandoc-citeproc marker on the block-quote line:
 
 ```
 > [@citekey, p. X] "Quoted passage."
-> [@citekey, scan p. X, printed page TBD] "Passage from a scan whose printed page is not yet verified."
-> [@citekey, working paper p. X, published page TBD] "Passage from a working-paper version that must be checked against the published article before final quotation."
 ```
 
-When the printed-page or published-page reference is verified, update the marker and remove the "TBD" qualifier.
+`conventions.md` carries the canonical rule, the locator variants (verse, whole-work, online, scan-pending, working-paper-pending), and the policy for resolving TBD qualifiers. Do not redeclare or paraphrase the rule here; treat CONV-002 as authoritative.
+
+A working quotation that lacks a marker is not draft-ready. The draft editor will refuse it (see `role-1-draft-editor.md`).
 
 ### Cross-references
 
@@ -263,29 +263,56 @@ phase. It is where research becomes available for drafting.
 - `citekey1` — [what it provides, how to use it, caveats]
 - `citekey2` — [...]
 
-**Working Quotations**
+**Working Quotations.**
 
 <!--
-Quotations grouped by thematic cluster. Each cluster has a header
-explaining the analytical use, then the quotes with citation markers,
-then optional use-instructions per quote.
+Per CONV-002 in conventions.md, every working quotation begins with a
+pandoc-citeproc marker on the block-quote line. The marker is what
+binds the quote to references.bib; without it, the quote is decoration
+and the draft editor will refuse the card.
+
+Analytical notes about a quote (what it does for the argument, how to
+pair it with another quote, caveats about its source) belong on the
+lines following the block-quote, not in lieu of the marker. Prose-style
+attribution like "Author argues..." in the surrounding note is fine
+in addition to the marker, not as a replacement.
 
 A working quotation is not the final form of the quote in the draft.
 It is the raw material the drafter will integrate, paraphrase, or
 abridge as needed. Verbatim use in the manuscript should be checked
 against the source one more time at the role-2 or role-3 stage.
+
+Optional: group quotes by analytical use under a short italicised label.
+Keep the label short — it is metadata, not a prose paragraph opener.
 -->
 
-**[Thematic cluster label].**
+Do:
 
-<!-- Use-instruction for the cluster: what analytical work the quotes
-in this cluster do for the chapter. -->
+```
+> [@pressfield2002war, p. 15] "Resistance is the most toxic force on the planet."
+
+Use as the chapter's opening framing of the inner obstacle. Pair with [@burkeman2021four, p. 60] for the contrast.
+```
+
+Don't:
+
+```
+**Pressfield integration (War of Art):**
+
+Pressfield argues that Resistance is the central obstacle the working artist faces. He returns to this in the opening pages.
+```
+
+— The "Don't" form has no marker. It cannot survive a citekey rename and gives the draft editor nothing to anchor to.
+
+_Optional cluster label._
 
 > [@citekey, p. X] "Quoted passage."
 
+Analytical note on how this quote lands in the chapter argument.
+
 > [@citekey, p. Y] "Another passage."
 
-<!-- Add further clusters as needed. -->
+Analytical note.
 
 **Gaps and Queries.**
 

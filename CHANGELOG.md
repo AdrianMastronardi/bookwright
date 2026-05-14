@@ -13,6 +13,17 @@ Entries are grouped by area, in this fixed order. Sections with no entries for a
 
 Within each section, entries are sorted in case-insensitive alphabetical order by filename.
 
+## [0.1.1] - 2026-05-14
+
+This batch closes a citation-discipline gap surfaced by auditing a real consumer project: `outline.md` declared a pandoc-citeproc quotation-marker format in its own working-conventions section, but the format had no anchor in the project's authoritative ledger (`conventions.md`), no enforcement in the chapter-card template, and no precondition check at the draft-editor handoff. The result was that working quotations drifted to free-form prose attribution ("Author argues...", `**X integration (Y):**`), citekey renames in `references.bib` no longer surfaced as broken references in `outline.md`, and typos in source-author attribution could propagate to the draft undetected.
+
+### Templates
+
+- `templates/conventions.md`: new `CONV-002 · Working quotation format in outline.md`. Records the pandoc-citeproc marker rule as project law in the authoritative ledger, with locator variants (whole-work, verse, online, scan-pending, working-paper-pending) and the TBD-resolution policy. `CONV-001` and `CONV-002` are now the seeded conventions for new projects.
+- `templates/outline.md`: top-of-file "Quotation marker format" subsection rewritten to reference `CONV-002` as authoritative rather than redeclaring the rule. Per-chapter "Working Quotations" block refactored: the `**[Thematic cluster label].**` header pattern (which invited prose-attribution drift) is replaced by a `Do` / `Don't` contrast block followed by an italicised cluster-label form and analytical-note lines following the block-quote. The meta-instruction is explicit that prose attribution can accompany a marker but cannot replace it.
+- `templates/role-1-draft-editor.md`: new "Citation discipline (CONV-002)" precondition under "Inputs You Need." Before drafting, the role verifies that every working quotation in the chapter card begins with a `[@citekey, p. X]` marker; chapter cards with unbound quotations are returned to the research/quotation-gathering phase rather than drafted from.
+- `templates/role-2-development-line-editor.md`: new "Citation Integrity (CONV-002)" subsection under "Developmental Responsibilities." The development pass verifies that every in-prose citation in the draft resolves to a citekey present in `references.bib`. Scope is internal integrity between draft and bibliography; cross-checking against `outline.md` is explicitly out of scope (author responsibility).
+
 ## [0.1.0] - 2026-05-13
 
 Initial release. Six-phase pipeline for long-form nonfiction (manifesto, voice, structure, bibliography, outline, writing) packaged as a Claude Code skill. The bootstrap procedure interviews the author through two completeness gates (manifesto, voice) before generating any artifact, then scaffolds the rest of the project's files. Three editorial roles (draft, development-and-line, copy) drive the writing phase.

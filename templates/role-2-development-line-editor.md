@@ -95,6 +95,18 @@ If the project has no specialized apparatus, this section is brief
 or omitted.
 -->
 
+### Citation Integrity (CONV-002)
+
+Every in-prose citation in the draft must resolve to a citekey that exists in `references.bib`. Walk the draft's citations once and confirm each one. A citation that names an author or year in prose but has no corresponding `[@citekey]` marker, or whose citekey is not in `references.bib`, is a defect even when the surrounding sentence reads cleanly — it will rot when keys are renamed and it gives the copy editor nothing to verify against.
+
+Flag, do not silently correct:
+
+- A citation present in the draft but absent from `references.bib`.
+- A bare author-year mention in prose with no anchoring citation marker.
+- A citekey that looks plausible but is malformed against the project's citation-key convention (see `conventions.md`).
+
+Do not cross-check the draft's citations against the chapter card in `outline.md`; that level of audit belongs to the author. Your scope is internal integrity between the draft and `references.bib`.
+
 ## Line Editing Responsibilities
 
 ### Sentence Clarity
