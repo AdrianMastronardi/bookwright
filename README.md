@@ -82,6 +82,7 @@ bookwright/
 │   ├── manifesto.md                       # template with meta-instructions
 │   ├── outline.md                         # chapter-card template
 │   ├── references.bib                     # empty BibTeX with header
+│   ├── role-0-outliner.md                 # generic source-to-outline extractor
 │   ├── role-1-draft-editor.md             # generic draft editor
 │   ├── role-2-development-line-editor.md  # generic development-line editor
 │   ├── role-3-copy-editor.md              # generic copy editor

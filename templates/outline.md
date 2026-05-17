@@ -130,13 +130,15 @@ Each chapter card carries a **Status** line at the top. The status flag indicate
 
 ### Quotation marker format
 
-Working quotations follow **CONV-002** in `conventions.md`. Every quotation begins with a pandoc-citeproc marker on the block-quote line:
+Working quotations follow **CONV-002** in `conventions.md`. Every quotation begins with a pandoc-citeproc marker on the block-quote line, followed by an analytical note on a `>` continuation line inside the same block-quote, prefixed with the literal label `Analytical note:`:
 
 ```
 > [@citekey, p. X] "Quoted passage."
+>
+> Analytical note: how this quote lands in the chapter argument.
 ```
 
-`conventions.md` carries the canonical rule, the locator variants (verse, whole-work, online, scan-pending, working-paper-pending), and the policy for resolving TBD qualifiers. Do not redeclare or paraphrase the rule here; treat CONV-002 as authoritative.
+`conventions.md` carries the canonical rule, the locator variants (verse, whole-work, online, scan-pending, working-paper-pending), the policy for resolving TBD qualifiers, and the multi-paragraph note rule. Do not redeclare or paraphrase the rule here; treat CONV-002 as authoritative.
 
 A working quotation that lacks a marker is not draft-ready. The draft editor will refuse it (see `role-1-draft-editor.md`).
 
@@ -158,16 +160,15 @@ Both are searchable; both should be tracked and resolved before DRAFT-READY.
 
 ### Author commentary on quotations
 
-After a quotation, the author may add an italicized or unmarked use-instruction:
+After a quotation, the author adds an analytical note inside the same block-quote, on a `>` continuation line, per `CONV-002` in `conventions.md`. The note is prefixed with the literal label `Analytical note:`:
 
 ```
 > [@citekey, p. X] "Quoted passage."
-
-Use as the chapter's opening framing of the institutional problem.
-Pair with [@othercitekey, p. Y] for the contrast.
+>
+> Analytical note: use as the chapter's opening framing of the institutional problem. Pair with [@othercitekey, p. Y] for the contrast.
 ```
 
-The use-instruction tells the drafter how the quote should function in prose, not what the quote means.
+The analytical note tells the drafter how the quote should function in prose, not what the quote means.
 
 ---
 
@@ -271,11 +272,12 @@ pandoc-citeproc marker on the block-quote line. The marker is what
 binds the quote to references.bib; without it, the quote is decoration
 and the draft editor will refuse the card.
 
-Analytical notes about a quote (what it does for the argument, how to
-pair it with another quote, caveats about its source) belong on the
-lines following the block-quote, not in lieu of the marker. Prose-style
-attribution like "Author argues..." in the surrounding note is fine
-in addition to the marker, not as a replacement.
+The analytical note about the quote (what it does for the argument,
+how to pair it with another quote, caveats about its source) lives
+inside the same block-quote on a `>` continuation line, prefixed with
+the literal label `Analytical note:`. Prose-style attribution like
+"Author argues..." inside the analytical note is fine in addition to
+the marker, not as a replacement.
 
 A working quotation is not the final form of the quote in the draft.
 It is the raw material the drafter will integrate, paraphrase, or
@@ -290,8 +292,8 @@ Do:
 
 ```
 > [@pressfield2002war, p. 15] "Resistance is the most toxic force on the planet."
-
-Use as the chapter's opening framing of the inner obstacle. Pair with [@burkeman2021four, p. 60] for the contrast.
+>
+> Analytical note: use as the chapter's opening framing of the inner obstacle. Pair with [@burkeman2021four, p. 60] for the contrast.
 ```
 
 Don't:
@@ -307,12 +309,12 @@ Pressfield argues that Resistance is the central obstacle the working artist fac
 _Optional cluster label._
 
 > [@citekey, p. X] "Quoted passage."
-
-Analytical note on how this quote lands in the chapter argument.
+>
+> Analytical note: how this quote lands in the chapter argument.
 
 > [@citekey, p. Y] "Another passage."
-
-Analytical note.
+>
+> Analytical note: how this one lands.
 
 **Gaps and Queries.**
 

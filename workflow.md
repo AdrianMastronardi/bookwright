@@ -67,6 +67,8 @@ The outline is where research becomes drafting raw material. For each chapter an
 
 The outline is where the TOC and bibliography meet. Chapters that resist outlining usually need to be restructured, merged, or split.
 
+Phase 5 has an optional editorial role, `role-0-outliner.md`, which the author invokes one source at a time. It reads a single document (paper, chapter, archival source) and produces a working markdown file with a verified BibTeX entry, working quotations bound to `CONV-002` markers, and analytical notes mapped to the project's chapters. The author then commits the parts into `references.bib` and the relevant chapter cards in `outline.md`. The role is the cleanest way to keep extraction discipline consistent across a long corpus.
+
 **Phase exit criterion (per chapter):** the chapter's status flag reaches `DRAFT-READY` (see the outline template). A draft can begin without the author having to look anywhere except `manifesto.md`, `voice.md`, the relevant outline section, and the source files referenced.
 
 ### Phase 6 — Writing (chapters/, with three editorial passes)

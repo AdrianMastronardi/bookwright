@@ -11,7 +11,7 @@ The skill is invoked in one of three modes:
 
 1. **Bootstrap a new project.** The user says, in natural language, what they want to write. The skill interrogates until two completeness gates (manifesto, voice) are satisfied, then generates all artifacts. See `bootstrap.md`.
 2. **Resume work on an existing project.** The skill detects `manifesto.md` and `voice.md` at the project root and reads them before touching anything. Use them as project law for every decision.
-3. **Run an editorial role.** The user asks for a draft, a development edit, or a copyedit of a chapter or section. Load the corresponding `role-N-*.md` from the project root and follow it.
+3. **Run an editorial role.** The user asks for source extraction into outline material, a draft, a development edit, or a copyedit of a chapter or section. Load the corresponding `role-N-*.md` from the project root and follow it.
 
 The pipeline itself is documented in `workflow.md`. The bootstrap procedure is in `bootstrap.md`. The templates are in `templates/`.
 
@@ -53,7 +53,7 @@ Do NOT invoke for one-off writing assistance unrelated to a structured editorial
 
 2. **Read project law before acting.** In Resume mode, never draft, edit, or restructure without first reading `manifesto.md` and `voice.md`. They are project law. Reading them is non-negotiable, even when the user's request seems narrow.
 
-3. **For editorial roles**, read the corresponding role file (`role-1-draft-editor.md`, `role-2-development-line-editor.md`, or `role-3-copy-editor.md`) from the project root, not from this skill. The role files at the project root have been instantiated with the project's specific voice and method; the skill's `templates/` directory contains only the generic versions.
+3. **For editorial roles**, read the corresponding role file (`role-0-outliner.md`, `role-1-draft-editor.md`, `role-2-development-line-editor.md`, or `role-3-copy-editor.md`) from the project root, not from this skill. The role files at the project root have been instantiated with the project's specific voice and method; the skill's `templates/` directory contains only the generic versions.
 
 ## Files in this skill
 
@@ -66,6 +66,7 @@ Do NOT invoke for one-off writing assistance unrelated to a structured editorial
 - `templates/outline.md` — the chapter-card template with status flags, cross-references, and gaps/queries.
 - `templates/references.bib` — empty BibTeX file with header.
 - `templates/conventions.md` — ADR-style conventions file with a seed entry.
+- `templates/role-0-outliner.md` — generic source-to-outline extractor that produces working quotations bound to CONV-002 markers.
 - `templates/role-1-draft-editor.md` — generic draft editor with placeholders.
 - `templates/role-2-development-line-editor.md` — generic development-line editor.
 - `templates/role-3-copy-editor.md` — generic copy editor.

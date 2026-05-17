@@ -13,6 +13,32 @@ Entries are grouped by area, in this fixed order. Sections with no entries for a
 
 Within each section, entries are sorted in case-insensitive alphabetical order by filename.
 
+## [0.1.2] - 2026-05-17
+
+Two changes in this batch.
+
+First, a new editorial role for Phase 5 (Outline): `role-0-outliner.md`. The role takes a single source document and produces a working markdown file with a verified BibTeX entry, per-chapter working quotations bound to `CONV-002` markers, an optional quantitative appendix, an optional conceptual glossary, and editor notes. The author then commits the parts into `references.bib` and the affected chapter cards in `outline.md`. This formalizes a workflow that previously had to be improvised once per source: bibliography acquisition feeds outlining feeds drafting, and the outliner is the bridge between the first two.
+
+Second, `CONV-002` is revised so that the analytical note about each working quotation lives inside the same block-quote as the quote, separated by a `>` continuation line and prefixed with the literal label `Analytical note:`. Previously the note lived on free lines after the block-quote with no label, which let quote and note drift apart during chapter-card reordering or copy-paste and gave a future linter nothing to anchor on. The new placement co-locates quote and note, and the label makes notes grep-able. `outline.md` examples, the new `role-0-outliner.md`, and the `role-1-draft-editor.md` precondition all use the revised format throughout.
+
+### Skill
+
+- `bootstrap.md`: Step 3 batch-generation step extended to include `role-0-outliner.md` alongside the other three role files. The role's outline-phase use is described inline so Step 3 is self-documenting.
+- `SKILL.md`: file list extended with `templates/role-0-outliner.md`. The "What the skill does on invocation" entry for editorial roles now lists `role-0-outliner.md` first, and the operational-modes section names source extraction as one of the things the user can ask for inside Resume mode.
+- `workflow.md`: Phase 5 (Outline) describes `role-0-outliner.md` as the optional per-source role authors can invoke to keep extraction discipline consistent across a long corpus.
+
+### Templates
+
+- `templates/conventions.md`: `CONV-002` Decision section revised to specify that the analytical note about each working quotation lives inside the block-quote on a `>` continuation line and is prefixed with the literal label `Analytical note:`; multi-paragraph notes permitted via additional `>` lines, with the label appearing only on the first paragraph. Context paragraph notes the co-location requirement; Consequences paragraph adds that co-location keeps quote and note bound through chapter-card reordering and copy-paste. Marker variants and TBD-resolution policy are unchanged.
+- `templates/outline.md`: four examples and one HTML comment brought into compliance with the revised `CONV-002`. "Quotation marker format" subsection example extended from marker-only to the full marker-plus-`Analytical note:` form. "Author commentary on quotations" subsection example updated to the in-block-quote placement with the literal label. Per-chapter card "Working Quotations" block: the HTML-comment brief, the Do example, and the optional-cluster-label pattern all updated. The "Don't" form is unchanged — its point (missing marker) is independent of note placement.
+- `templates/role-0-outliner.md`: new generic role file with placeholders for project brief and primary language. Sections: Identity and Mission, Inputs You Need, Output and Integration, Extraction Logic (seven steps: BibTeX entry, TOC mapping, end-to-end read and selection, CONV-002 quotation format with the analytical note inside the block-quote and locator variants, optional quantitative appendix, optional conceptual glossary, editor notes), Editorial Stance, What Not to Do, Response Format with the output skeleton, Pre-delivery Checklist, Final Reminder. The role consults `manifesto.md`, `voice.md`, `toc.md`, `outline.md`, `references.bib`, and `conventions.md`; its output respects the revised `CONV-002` so chapter cards advanced via the outliner pass the draft-editor handoff in `role-1-draft-editor.md`.
+- `templates/role-1-draft-editor.md`: "Citation discipline (CONV-002)" precondition in "Inputs You Need" extended with a second paragraph covering the new in-block-quote analytical note. The paragraph tells the drafter the note is guidance (how the quote is meant to land in the chapter argument), not chapter prose, and frames the choice of integration form — verbatim, paraphrased, abridged, or brief citation — as the drafter's editorial judgment. The invariant is that the citation marker accompanies the source whatever form it takes, and the `Analytical note: …` line never appears in the chapter prose.
+
+### Documentation
+
+- `CLAUDE.md`: "Pipeline architecture" extended with a paragraph noting that Phase 5 has an optional per-source role, `role-0-outliner.md`, that the author invokes one source at a time. The paragraph explicitly states that the `[DRAFT-READY]` gate remains per-chapter; role-0 does not participate in that gate.
+- `README.md`: file tree under `templates/` extended with `role-0-outliner.md` in alphabetical order between `references.bib` and `role-1-draft-editor.md`.
+
 ## [0.1.1] - 2026-05-14
 
 This batch closes a citation-discipline gap surfaced by auditing a real consumer project: `outline.md` declared a pandoc-citeproc quotation-marker format in its own working-conventions section, but the format had no anchor in the project's authoritative ledger (`conventions.md`), no enforcement in the chapter-card template, and no precondition check at the draft-editor handoff. The result was that working quotations drifted to free-form prose attribution ("Author argues...", `**X integration (Y):**`), citekey renames in `references.bib` no longer surfaced as broken references in `outline.md`, and typos in source-author attribution could propagate to the draft undetected.

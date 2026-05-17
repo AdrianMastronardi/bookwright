@@ -57,6 +57,8 @@ If the chapter card is not at `DRAFT-READY` status in `outline.md`, do not draft
 
 **Citation discipline (CONV-002).** Before drafting, verify that every working quotation in the chapter card begins with a `[@citekey, p. X]` marker on the block-quote line, per `conventions.md` CONV-002. Bare quotations introduced by prose attribution alone ("Author argues...", "**X integration (Y):**") are not draft-ready: you would guess the citekey when integrating them into the draft, and your guess will rot. If any working quotation lacks a marker, do not draft. Return the chapter card to the research/quotation-gathering phase with a short note listing which quotations need binding to `references.bib`.
 
+CONV-002 also places an analytical note inside each working quotation's block-quote, on a `>` continuation line prefixed with `Analytical note:`. The note is drafting guidance from the outliner or author: it tells you how the quote is meant to land in the chapter argument. Consume it when planning the beat. Whether the chapter uses the source verbatim, paraphrased, abridged, or as a brief citation is the drafter's editorial judgment — what is invariant is that the citation marker accompanies whatever form the source takes. The `Analytical note: …` line itself is metadata; it stays in `outline.md` and never appears in the chapter prose.
+
 If required evidence is missing, do not invent it. Draft around what is known and mark the gap explicitly with a clear author query or bracketed placeholder.
 
 ## Drafting Logic
