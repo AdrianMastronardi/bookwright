@@ -13,6 +13,19 @@ Entries are grouped by area, in this fixed order. Sections with no entries for a
 
 Within each section, entries are sorted in case-insensitive alphabetical order by filename.
 
+## [0.1.3] - 2026-05-30
+
+Adds four source conventions to the seeded ledger: chapter file naming, single-file bibliography, citation keys, and BibTeX entry formatting. All four schemes were previously improvised per project; recording them gives new projects stable defaults — a sort-correct chapter ordering for pandoc builds, a single authoritative bibliography file, self-describing collision-free citation keys, and a consistent, diff-friendly BibTeX entry style.
+
+### Templates
+
+- `templates/conventions.md`: four new conventions.
+  - `CONV-003 · Chapter file naming`. Records the hierarchical `P.C-slug.md` pattern as project law: `P` is the grouping number (main parts consecutive from `1`, `0` reserved for front matter, higher numbers for back matter and bibliography, mapping documented in `toc.md`), `C` is the chapter within the grouping with `0` reserved for the part divider and dividerless groupings starting at `1`, single-digit until a grouping reaches ten entries then two-digit padding, and `slug` lowercase ASCII with hyphens. Part divider files carry only the part-title command plus an `MD041` disable header; part-page styling and part-level TOC placement are enforced once in the project's LaTeX template. Project-specific specifics (part count, exact macros, illustrative names) are generalized for the template.
+  - `CONV-004 · Bibliography is a single BibTeX file`. Records that all bibliographic entries live in one `references.bib` at the project root (no per-chapter bibliography files), entries sorted alphabetically by citation key, with in-file comments and section dividers permitted for working organization but stripped at render time — pandoc-citeproc emits a single alphabetized list regardless of source order. Date generalized to the template placeholder.
+  - `CONV-005 · Citation keys in references.bib`. Records the `surnameYEARkeyword` key form (lowercase ASCII, no accents; `keyword` is the first significant word of the title skipping articles), same-year disambiguation by keyword, first-author surname for coauthored works, and editor surname for edited volumes with no single author. Project-specific example keys are generalized for the template. Notes that this is the long-form statement of the `firstcreatorYYYYshorttitle` policy already in the `references.bib` header and that the two must stay consistent.
+  - `CONV-006 · BibTeX entry formatting in references.bib`. Records two formatting rules for every entry: single-space around `=` (`  fieldname = {value},`) and a trailing comma on the last field, so adding a field is a single-line diff and `git blame` stays precise. Field-name alignment is explicitly excluded as too costly to maintain. The project-specific one-time reformatting history is generalized into guidance: bring inherited entries into compliance in a single pass and record it in the changelog.
+  - `CONV-001` through `CONV-006` are now the seeded conventions for new projects.
+
 ## [0.1.2] - 2026-05-17
 
 Two changes in this batch.
