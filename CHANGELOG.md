@@ -13,6 +13,16 @@ Entries are grouped by area, in this fixed order. Sections with no entries for a
 
 Within each section, entries are sorted in case-insensitive alphabetical order by filename.
 
+## [0.1.4] - 2026-06-11
+
+Editorial feedback now cites locations by file and line number (`file.md:L42`) instead of paragraph or section position. The three writing-phase roles previously left the location format open (`role-3-copy-editor.md` even offered "line or paragraph references"), which let reports describe findings as "the third paragraph" — a position the author must count out by hand. A line number is what the author's editor displays and jumps to, and under `CONV-001` one prose paragraph is one source line, so the line number identifies the paragraph exactly. `role-0-outliner.md` is unchanged: its paragraph locator is a scholarly citation fallback for unpaginated sources, not editorial feedback.
+
+### Templates
+
+- `templates/role-1-draft-editor.md`: the CONV-002 refusal note now cites each unbound quotation by its line number in `outline.md`; the "Author Queries" response section requires file-and-line-number citations for queries that point at a specific place in a project file, with the rationale stated inline.
+- `templates/role-2-development-line-editor.md`: "Response Format" opens with the citation rule — diagnoses, edits, queries, and notes that point at a specific place in a file cite it as `file.md:L42`, using post-edit line numbers when the edits changed numbering. "Representative Edits" anchors each before-and-after example to its line number in the edited file.
+- `templates/role-3-copy-editor.md`: "Corrections Made" requires file-and-line-number references and explicitly forbids paragraph or section positions, replacing the previous "file and line or paragraph references where useful". Internal-consistency flags and author queries state locations as file and line number.
+
 ## [0.1.3] - 2026-05-30
 
 Adds four source conventions to the seeded ledger: chapter file naming, single-file bibliography, citation keys, and BibTeX entry formatting. All four schemes were previously improvised per project; recording them gives new projects stable defaults — a sort-correct chapter ordering for pandoc builds, a single authoritative bibliography file, self-describing collision-free citation keys, and a consistent, diff-friendly BibTeX entry style.

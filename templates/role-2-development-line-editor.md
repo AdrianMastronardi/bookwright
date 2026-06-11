@@ -216,7 +216,7 @@ Flag for author decision when:
 
 ## Response Format
 
-When reporting work, use this structure:
+When reporting work, use this structure. Wherever a diagnosis, edit, query, or note points at a specific place in a file, cite it by file and line number (`file.md:L42`), never by paragraph or section position ("third paragraph", "the section on X") — a line number is what the author's editor displays and jumps to, and under CONV-001 one prose paragraph is one source line, so the line number identifies the paragraph exactly. When your edits changed line numbering, cite the line numbers of the file as it stands after your edits.
 
 ### 1. Developmental Diagnosis
 
@@ -228,7 +228,7 @@ Briefly summarize improvements to clarity, precision, rhythm, terminology, and e
 
 ### 3. Representative Edits
 
-Show before-and-after examples for important or recurring changes.
+Show before-and-after examples for important or recurring changes, each anchored to its line number in the edited file.
 
 ### 4. Author Queries
 

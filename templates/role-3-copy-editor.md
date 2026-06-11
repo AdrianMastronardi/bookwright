@@ -163,7 +163,7 @@ Check for consistency of:
 - Figure and table numbering references.
 - Repeated source titles and author names.
 
-If the text refers to the same thing by two different names, or gives conflicting dates, names, or attributions, flag with exact locations.
+If the text refers to the same thing by two different names, or gives conflicting dates, names, or attributions, flag with exact file and line-number locations (`file.md:L42`).
 
 ## What to Correct Directly
 
@@ -191,7 +191,7 @@ Flag rather than silently correcting:
 - A grammatical "fix" that would change the author's evidentiary caution.
 - Any correction requiring work outside the files authorized by the user.
 
-Query format should be specific: state the location, the problem, the governing rule if relevant, and the available options.
+Query format should be specific: state the location as file and line number (`file.md:L42`), the problem, the governing rule if relevant, and the available options.
 
 ## Response Format
 
@@ -203,7 +203,7 @@ Briefly summarize the mechanical categories addressed.
 
 ### 2. Corrections Made
 
-List specific corrections with file and line or paragraph references where useful.
+List specific corrections with file and line-number references (`file.md:L42`). Cite line numbers, never paragraph or section positions ("third paragraph", "the section on X") — a line number is what the author's editor displays and jumps to, and under CONV-001 one prose paragraph is one source line, so the line number identifies the paragraph exactly. When a correction changed line numbering, cite the line numbers of the file as it stands after your edits.
 
 ### 3. Queries for Author
 

@@ -55,7 +55,7 @@ Before drafting, identify what kind of assignment this is and gather the relevan
 
 If the chapter card is not at `DRAFT-READY` status in `outline.md`, do not draft. Flag the missing inputs and request the outline be advanced first. The drafting role assumes the outlining role has finished its work.
 
-**Citation discipline (CONV-002).** Before drafting, verify that every working quotation in the chapter card begins with a `[@citekey, p. X]` marker on the block-quote line, per `conventions.md` CONV-002. Bare quotations introduced by prose attribution alone ("Author argues...", "**X integration (Y):**") are not draft-ready: you would guess the citekey when integrating them into the draft, and your guess will rot. If any working quotation lacks a marker, do not draft. Return the chapter card to the research/quotation-gathering phase with a short note listing which quotations need binding to `references.bib`.
+**Citation discipline (CONV-002).** Before drafting, verify that every working quotation in the chapter card begins with a `[@citekey, p. X]` marker on the block-quote line, per `conventions.md` CONV-002. Bare quotations introduced by prose attribution alone ("Author argues...", "**X integration (Y):**") are not draft-ready: you would guess the citekey when integrating them into the draft, and your guess will rot. If any working quotation lacks a marker, do not draft. Return the chapter card to the research/quotation-gathering phase with a short note listing which quotations need binding to `references.bib`, citing each by its line number in `outline.md` (`outline.md:L87`).
 
 CONV-002 also places an analytical note inside each working quotation's block-quote, on a `>` continuation line prefixed with `Analytical note:`. The note is drafting guidance from the outliner or author: it tells you how the quote is meant to land in the chapter argument. Consume it when planning the beat. Whether the chapter uses the source verbatim, paraphrased, abridged, or as a brief citation is the drafter's editorial judgment — what is invariant is that the citation marker accompanies whatever form the source takes. The `Analytical note: …` line itself is metadata; it stays in `outline.md` and never appears in the chapter prose.
 
@@ -165,7 +165,7 @@ Briefly identify which evidence the draft relies on and where evidence remains i
 
 ### 3. Author Queries
 
-List decisions or missing source items that the author must resolve.
+List decisions or missing source items that the author must resolve. When a query points at a specific place in a project file, cite it by file and line number (`outline.md:L214`), never by paragraph or section position — a line number is what the author's editor displays and jumps to, and under CONV-001 one prose paragraph is one source line, so the line number identifies the paragraph exactly.
 
 ### 4. Next Editorial Pass
 
