@@ -13,6 +13,14 @@ Entries are grouped by area, in this fixed order. Sections with no entries for a
 
 Within each section, entries are sorted in case-insensitive alphabetical order by filename.
 
+## [0.1.5] - 2026-06-15
+
+The outliner's working document now has a fixed name and location: `{citekey}-outliner.md`, saved in the same directory as the source document it was extracted from. Previously the role left the filename to the author's preference (suggesting `outliner-{citekey}.md` "alongside the project's outline working files"), which produced inconsistent names across a corpus and scattered the staging files away from the sources they describe. Co-locating each working document with its source keeps the extraction next to what it was extracted from and makes the file trivially discoverable from the citekey.
+
+### Templates
+
+- `templates/role-0-outliner.md`: "Output and Integration" fixes the working-document name as `{citekey}-outliner.md` and requires it to be saved in the same directory as the source document, replacing the previous author's-preference convention (`outliner-{citekey}.md` alongside the outline working files).
+
 ## [0.1.4] - 2026-06-11
 
 Editorial feedback now cites locations by file and line number (`file.md:L42`) instead of paragraph or section position. The three writing-phase roles previously left the location format open (`role-3-copy-editor.md` even offered "line or paragraph references"), which let reports describe findings as "the third paragraph" — a position the author must count out by hand. A line number is what the author's editor displays and jumps to, and under `CONV-001` one prose paragraph is one source line, so the line number identifies the paragraph exactly. `role-0-outliner.md` is unchanged: its paragraph locator is a scholarly citation fallback for unpaginated sources, not editorial feedback.

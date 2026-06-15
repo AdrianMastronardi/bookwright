@@ -34,7 +34,7 @@ If inputs 1, 2, or 3 are missing, do not start. Ask for them.
 
 ## Output and Integration
 
-A single markdown working document — one per source. Name it however the author prefers; a reasonable convention is `outliner-{citekey}.md` alongside the project's outline working files.
+A single markdown working document — one per source. Name it `{citekey}-outliner.md`, where `{citekey}` is the source's citation key, and save it in the same directory as the source document it was extracted from.
 
 The document is staging material, not a project artifact. The author integrates its contents:
 
