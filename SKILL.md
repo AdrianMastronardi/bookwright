@@ -1,17 +1,17 @@
 ---
 name: bookwright
-description: Bootstrap and run a long-form editorial writing project (book, monograph, essay, serialized work) using a six-phase pipeline. Use when the user asks to start a new writing project ("I want to write a book about X", "starting a new editorial project", "/bookwright"), when they reference the phases of this pipeline (manifesto, voice, toc, outline, drafting roles), or when they ask Claude to help draft, develop-edit, or copy-edit a chapter inside a project that already has manifesto.md and voice.md at its root.
+description: Bootstrap and run a long-form editorial writing project (book, monograph, essay, serialized work) using a seven-phase pipeline. Use when the user asks to start a new writing project ("I want to write a book about X", "starting a new editorial project", "/bookwright"), when they reference the phases of this pipeline (manifesto, voice, toc, outline, drafting roles), or when they ask Claude to help draft, develop-edit, or copy-edit a chapter inside a project that already has manifesto.md and voice.md at its root.
 ---
 
 # Bookwright
 
-This skill packages a six-phase pipeline for long-form editorial writing. It produces a coherent set of project artifacts (`manifesto.md`, `voice.md`, `toc.md`, `outline.md`, `references.bib`, `conventions.md`, and three editorial role files) and then drives drafting, development editing, and copyediting against those artifacts.
+This skill packages a seven-phase pipeline for long-form editorial writing. It produces a coherent set of project artifacts (`manifesto.md`, `voice.md`, `toc.md`, `outline.md`, `references.bib`, `conventions.md`, and five editorial role files) and then drives source extraction, drafting, development editing, copyediting, and a final whole-manuscript assessment against those artifacts.
 
 The skill is invoked in one of three modes:
 
 1. **Bootstrap a new project.** The user says, in natural language, what they want to write. The skill interrogates until two completeness gates (manifesto, voice) are satisfied, then generates all artifacts. See `bootstrap.md`.
 2. **Resume work on an existing project.** The skill detects `manifesto.md` and `voice.md` at the project root and reads them before touching anything. Use them as project law for every decision.
-3. **Run an editorial role.** The user asks for source extraction into outline material, a draft, a development edit, or a copyedit of a chapter or section. Load the corresponding `role-N-*.md` from the project root and follow it.
+3. **Run an editorial role.** The user asks for source extraction into outline material, a draft, a development edit, a copyedit of a chapter or section, or a final acquisition-style assessment of the finished manuscript. Load the corresponding `role-N-*.md` from the project root and follow it.
 
 The pipeline itself is documented in `workflow.md`. The bootstrap procedure is in `bootstrap.md`. The templates are in `templates/`.
 
@@ -51,14 +51,14 @@ Do NOT invoke for one-off writing assistance unrelated to a structured editorial
    - All present: enter **Resume mode**. Read `manifesto.md`, `voice.md`, and any other artifact the user's request implicates. Then act according to the user's specific request.
    - Partial: ask the user whether to complete the bootstrap (preferred) or to proceed with the artifacts that exist.
 
-2. **Read project law before acting.** In Resume mode, never draft, edit, or restructure without first reading `manifesto.md` and `voice.md`. They are project law. Reading them is non-negotiable, even when the user's request seems narrow.
+2. **Read project law before acting.** In Resume mode, never draft, edit, or restructure without first reading `manifesto.md` and `voice.md`. They are project law. Reading them is non-negotiable, even when the user's request seems narrow. The one exception is `role-4-acquiring-editor.md`: it evaluates the finished manuscript as a publishing house would receive it — cold — and therefore deliberately does *not* read `manifesto.md`, `voice.md`, or any other working document. Do not feed it project law; doing so destroys the blind read that is the role's entire purpose.
 
-3. **For editorial roles**, read the corresponding role file (`role-0-outliner.md`, `role-1-draft-editor.md`, `role-2-development-line-editor.md`, or `role-3-copy-editor.md`) from the project root, not from this skill. The role files at the project root have been instantiated with the project's specific voice and method; the skill's `templates/` directory contains only the generic versions.
+3. **For editorial roles**, read the corresponding role file (`role-0-outliner.md`, `role-1-draft-editor.md`, `role-2-development-line-editor.md`, `role-3-copy-editor.md`, or `role-4-acquiring-editor.md`) from the project root, not from this skill. The first four have been instantiated with the project's specific voice and method; the skill's `templates/` directory contains only the generic versions. `role-4-acquiring-editor.md` is the exception: it is deliberately generic and carries no project specifics, because it must read the manuscript blind (see point 2).
 
 ## Files in this skill
 
 - `SKILL.md` — this file. Claude reads it on skill invocation.
-- `workflow.md` — human-facing description of the six-phase pipeline.
+- `workflow.md` — human-facing description of the seven-phase pipeline.
 - `bootstrap.md` — the bootstrap protocol with two completeness gates.
 - `templates/manifesto.md` — generic template with meta-instructions.
 - `templates/voice.md` — generic template with meta-instructions.
@@ -70,6 +70,7 @@ Do NOT invoke for one-off writing assistance unrelated to a structured editorial
 - `templates/role-1-draft-editor.md` — generic draft editor with placeholders.
 - `templates/role-2-development-line-editor.md` — generic development-line editor.
 - `templates/role-3-copy-editor.md` — generic copy editor.
+- `templates/role-4-acquiring-editor.md` — generic acquiring-editor assessment of the finished manuscript; reads only the built PDF, blind to the project's working documents.
 
 ## Substitution variables
 

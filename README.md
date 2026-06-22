@@ -24,7 +24,7 @@ Researchers writing monographs, authors working on long-form essays or trade non
 - **Short-form writing.** A single article, blog post, or email does not need this much scaffolding.
 - **Code or technical documentation.** Other tools fit better.
 
-## The six phases
+## The seven phases
 
 1. **Idea** — `manifesto.md`: what the project is and why it exists.
 2. **Voice** — `voice.md`: how it is written.
@@ -32,6 +32,7 @@ Researchers writing monographs, authors working on long-form essays or trade non
 4. **Bibliography** — `references.bib`: the sources.
 5. **Outline** — `outline.md`: where research becomes drafting raw material.
 6. **Writing** — three editorial roles run in sequence per chapter (draft, develop, copyedit).
+7. **Assessment** — `acquiring-editor-report.md`: a final acquiring-editor read of the finished manuscript, judged blind from the built PDF.
 
 The full pipeline is documented in `workflow.md`. The bootstrap procedure is in `bootstrap.md`. The templates that get copied into new projects are in `templates/`.
 
@@ -86,6 +87,7 @@ bookwright/
 │   ├── role-1-draft-editor.md             # generic draft editor
 │   ├── role-2-development-line-editor.md  # generic development-line editor
 │   ├── role-3-copy-editor.md              # generic copy editor
+│   ├── role-4-acquiring-editor.md         # generic acquiring-editor assessment (reads the built PDF blind)
 │   ├── toc.md                             # minimal scaffold
 │   └── voice.md                           # template with meta-instructions
 └── workflow.md                            # human-facing pipeline description

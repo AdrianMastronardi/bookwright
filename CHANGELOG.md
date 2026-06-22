@@ -13,6 +13,24 @@ Entries are grouped by area, in this fixed order. Sections with no entries for a
 
 Within each section, entries are sorted in case-insensitive alphabetical order by filename.
 
+## [0.2.0] - 2026-06-22
+
+Adds a seventh pipeline phase, Assessment, and the editorial role that runs it: `role-4-acquiring-editor.md`. Once the manuscript is assembled and every chapter has cleared the three writing passes, the author can ask for a final acquisition-style read — a verdict on whether a publishing house would take the book on, decline it, or request a major revision, with a prioritized list of what would have to change before publication. The role is the deliberate inverse of the other four: it reads the finished manuscript **blind**, evaluating only the built PDF the way an editor receives a submission, and is forbidden from opening the project's working documents (`manifesto.md`, `voice.md`, `outline.md`, `conventions.md`, the chapter source). The blind read is the whole point — it tells the author whether the manuscript communicates its thesis, audience, and promise on its own, rather than through the intentions the author already declared. The assessment is advisory and terminal: it gates nothing, because nothing follows it.
+
+### Skill
+
+- `bootstrap.md`: Step 3 batch generation now produces `role-4-acquiring-editor.md`, copied essentially verbatim with no project substitution beyond the title in the heading — the inverse of how roles 0–3 are instantiated — because injecting the project's declared voice, audience, genre, or method would contaminate the blind read the role depends on.
+- `SKILL.md`: the pipeline is described as seven-phase throughout (frontmatter description, opening paragraph, `workflow.md` file note). `role-4-acquiring-editor.md` is added to the file list, the editorial-role invocation list, and the Resume-mode role list. A carve-out is added to the "read project law before acting" rule so the acquiring editor is never fed `manifesto.md` or `voice.md`; the file list notes it is the one deliberately generic role.
+- `workflow.md`: the pipeline is described as seven phases. A new `Phase 7 — Assessment` section describes the acquiring-editor role, its blind read of the built `output/` PDF, its `acquiring-editor-report.md` output, and how it differs from Role 2 (it judges whether the chapters add up to a book, the question only visible at the scale of the whole manuscript). The gates list records that Assessment has no gate; the artifact-relationship diagram shows the build → `output/*.pdf` → Role 4 → report flow.
+
+### Templates
+
+- `templates/role-4-acquiring-editor.md`: new generic role file. The acquiring editor reads only the built manuscript PDF under `output/` (produced by the project build, Makefile or equivalent), blind to every working document, and writes a consolidated editorial report to `acquiring-editor-report.md` at the project root, in the language of the manuscript. Sections: Identity and Mission; What You Receive and What You Must Not Open; Recognize the Book's Category Before You Judge It; What to Infer From the Manuscript; The Report (verdict, executive summary, what works, what does not work yet, the real book inside the manuscript, required changes, market and readership, recommendation, editorial letter); If the Manuscript Is Incomplete; Style of the Report; Output; Final Reminder. It judges the book against the standard of its own category rather than a generic trade-commercial yardstick, forbids invented comparable titles or market data, and references locations by part, chapter, and printed page rather than by source line number, since it reads the rendered PDF and never the source.
+
+### Documentation
+
+- `README.md`: the phase heading and list are updated to seven phases, adding the Assessment phase; the file tree is extended with `role-4-acquiring-editor.md`.
+
 ## [0.1.5] - 2026-06-15
 
 The outliner's working document now has a fixed name and location: `{citekey}-outliner.md`, saved in the same directory as the source document it was extracted from. Previously the role left the filename to the author's preference (suggesting `outliner-{citekey}.md` "alongside the project's outline working files"), which produced inconsistent names across a corpus and scattered the staging files away from the sources they describe. Co-locating each working document with its source keeps the extraction next to what it was extracted from and makes the file trivially discoverable from the citekey.
